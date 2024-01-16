@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define max(a, b) ((a) > (b) ? (a) : (b))
+
 typedef struct {
     int i;
     int di;
@@ -69,6 +71,17 @@ void minimum_slack_rule(Task *tasks, int n) {
     qsort(tasks, n, sizeof(Task), compare_slack);
 }
 
+int calculate_tardiness(Task *tasks, int n) {
+    int sum_pi = 0;
+    int tardiness = 0;
+    for (int i = 0; i < n; ++i) {
+        sum_pi += tasks[i].pi;
+        tardiness += tasks[i].pi * max(0, sum_pi - tasks[i].di);
+    }
+    return tardiness;
+}
+
+
 int calculate_cost(Task *tasks, int n) {
     int sum_pi = 0;
     for (int i = 0; i < n; ++i) {
@@ -105,13 +118,15 @@ void delete_task(Task *tasks, int n, int pos) {
 
 Task* minimum_cost_rule(Task *tasks, int n) {
     // Copie des tâches pour ne pas modifier l'ordre initial
+    Task* tasks_copy = malloc(sizeof(Task));
     Task* tasks_result = malloc(sizeof(Task));
     tasks_result = memcpy(tasks_result, tasks, sizeof(Task) * n);
+    tasks_copy = memcpy(tasks_copy, tasks, sizeof(Task) * n);
 
     for (int i = n; i > 0; i--) {
-        int pos_task_to_place = smallest_tardiness(tasks, i);
-        tasks_result[i - 1] = tasks[pos_task_to_place];
-        delete_task(tasks, i, pos_task_to_place);
+        int pos_task_to_place = smallest_tardiness(tasks_copy, i);
+        tasks_result[i - 1] = tasks_copy[pos_task_to_place];
+        delete_task(tasks_copy, i, pos_task_to_place);
     }
 
     return tasks_result;
@@ -182,6 +197,7 @@ int main() {
     // Affichage de la liste dans l'ordre
     display_tasks(tasks4, n3);
     display_schedule(tasks4, n3);
+    printf("Retard pondéré : %d", calculate_tardiness(tasks4, n3));
 
     // TODO - Ajouter la recherche locale de la recherche Tabou
     return 0;
