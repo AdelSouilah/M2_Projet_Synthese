@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Generation
+
+# Build rule for target.
+Generation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Generation
+.PHONY : Generation
+
+# fast build rule for target.
+Generation/fast:
+	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/build
+.PHONY : Generation/fast
+
+#=============================================================================
 # Target rules for targets named M2_Projet_Synthese
 
 # Build rule for target.
@@ -123,32 +136,59 @@ M2_Projet_Synthese/fast:
 	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/build
 .PHONY : M2_Projet_Synthese/fast
 
-test_tabou.o: test_tabou.c.o
+Generation.o: Generation.c.o
 
-.PHONY : test_tabou.o
+.PHONY : Generation.o
 
 # target to build an object file
-test_tabou.c.o:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/test_tabou.c.o
-.PHONY : test_tabou.c.o
+Generation.c.o:
+	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/Generation.c.o
+.PHONY : Generation.c.o
 
-test_tabou.i: test_tabou.c.i
+Generation.i: Generation.c.i
 
-.PHONY : test_tabou.i
+.PHONY : Generation.i
 
 # target to preprocess a source file
-test_tabou.c.i:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/test_tabou.c.i
-.PHONY : test_tabou.c.i
+Generation.c.i:
+	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/Generation.c.i
+.PHONY : Generation.c.i
 
-test_tabou.s: test_tabou.c.s
+Generation.s: Generation.c.s
 
-.PHONY : test_tabou.s
+.PHONY : Generation.s
 
 # target to generate assembly for a file
-test_tabou.c.s:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/test_tabou.c.s
-.PHONY : test_tabou.c.s
+Generation.c.s:
+	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/Generation.c.s
+.PHONY : Generation.c.s
+
+main.o: main.c.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.s
+.PHONY : main.c.s
 
 # Help Target
 help:
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Generation"
 	@echo "... M2_Projet_Synthese"
-	@echo "... test_tabou.o"
-	@echo "... test_tabou.i"
-	@echo "... test_tabou.s"
+	@echo "... Generation.o"
+	@echo "... Generation.i"
+	@echo "... Generation.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

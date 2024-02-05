@@ -37,6 +37,44 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Generation">
+				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Generation" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Generation"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Generation/fast">
+				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Generation" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Generation/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="M2_Projet_Synthese">
 				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/M2_Projet_Synthese" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
@@ -76,7 +114,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/test_tabou.c">
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/Generation.c">
+			<Option target="Generation"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/main.c">
 			<Option target="M2_Projet_Synthese"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/CMakeLists.txt">
