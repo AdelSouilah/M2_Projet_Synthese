@@ -76,7 +76,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/main.c">
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/test_tabou.c">
 			<Option target="M2_Projet_Synthese"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/CMakeLists.txt">

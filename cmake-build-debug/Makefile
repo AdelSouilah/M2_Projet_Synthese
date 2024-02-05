@@ -123,32 +123,32 @@ M2_Projet_Synthese/fast:
 	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/build
 .PHONY : M2_Projet_Synthese/fast
 
-main.o: main.c.o
+test_tabou.o: test_tabou.c.o
 
-.PHONY : main.o
+.PHONY : test_tabou.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.o
-.PHONY : main.c.o
+test_tabou.c.o:
+	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/test_tabou.c.o
+.PHONY : test_tabou.c.o
 
-main.i: main.c.i
+test_tabou.i: test_tabou.c.i
 
-.PHONY : main.i
+.PHONY : test_tabou.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.i
-.PHONY : main.c.i
+test_tabou.c.i:
+	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/test_tabou.c.i
+.PHONY : test_tabou.c.i
 
-main.s: main.c.s
+test_tabou.s: test_tabou.c.s
 
-.PHONY : main.s
+.PHONY : test_tabou.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.s
-.PHONY : main.c.s
+test_tabou.c.s:
+	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/test_tabou.c.s
+.PHONY : test_tabou.c.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... M2_Projet_Synthese"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... test_tabou.o"
+	@echo "... test_tabou.i"
+	@echo "... test_tabou.s"
 .PHONY : help
 
 
