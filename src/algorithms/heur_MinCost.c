@@ -25,5 +25,5 @@ void test_minCost(Task *tasks, int i, int n) {
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     int tardiness = calculateWeightedTardiness(tasks, n);
-    save_results_to_file("../output/result.csv", i, cpu_time_used, tardiness);
+    save_tard_and_time_to_file("../output/result.csv", cpu_time_used, tardiness);
 }

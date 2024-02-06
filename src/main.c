@@ -14,13 +14,15 @@
 int main() {
     srand(time(0));
 
-    int n = 10;
+    int n = 100;
     Task tasks[n];
 
     // Génération de 10 instances
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 10; i++) {
         generate_tasks(tasks, n, 10, 100, 2, 50);
         print_task_to_file(tasks, n, "../output/instances.csv");
+        save_id_to_file("../output/result.csv", i);
+
         test_edd(tasks, i, n);
         test_lpt(tasks, i, n);
         test_spt(tasks, i, n);
@@ -31,7 +33,8 @@ int main() {
         calculateAllValues(tasks, n);
     }
 
-    // TODO - mettre toutes les outputs dans un seul fichier avec l'obj et time des algos
+    // TODO
     //  - ajouter taboo genetique assigment pour branch and bound
+    //  - ajouter des ratios de performances pour comparer les algos
     return 0;
 }
