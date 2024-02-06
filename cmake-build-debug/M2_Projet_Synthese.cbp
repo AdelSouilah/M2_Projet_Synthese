@@ -17,16 +17,6 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
 				<Option type="4"/>
@@ -37,88 +27,104 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Generation">
-				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Generation" prefix_auto="0" extension_auto="0"/>
+			<Target title="rebuild_cache">
 				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Generation"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Generation/fast">
-				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Generation" prefix_auto="0" extension_auto="0"/>
+			<Target title="Executable">
+				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Executable" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/mnt/c/Developpement/M2_Projet_Synthese/headers"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Generation/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Executable"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="M2_Projet_Synthese">
-				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/M2_Projet_Synthese" prefix_auto="0" extension_auto="0"/>
+			<Target title="Executable/fast">
+				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Executable" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/mnt/c/Developpement/M2_Projet_Synthese/headers"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 M2_Projet_Synthese"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="M2_Projet_Synthese/fast">
-				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/M2_Projet_Synthese" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 M2_Projet_Synthese/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Executable/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/Generation.c">
-			<Option target="Generation"/>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/aide.h">
+			<Option target="Executable"/>
 		</Unit>
-		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/main.c">
-			<Option target="M2_Projet_Synthese"/>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/heur_EDD.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/heur_LPT.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/heur_MinCost.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/heur_SPT.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/heur_Slack.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/instance_gen.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/task.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/aide.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/heur_EDD.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/heur_LPT.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/heur_MinCost.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/heur_SPT.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/heur_Slack.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/instance_gen.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/main.c">
+			<Option target="Executable"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

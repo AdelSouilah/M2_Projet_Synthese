@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,84 +111,233 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Generation
+# Target rules for targets named Executable
 
 # Build rule for target.
-Generation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Generation
-.PHONY : Generation
+Executable: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Executable
+.PHONY : Executable
 
 # fast build rule for target.
-Generation/fast:
-	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/build
-.PHONY : Generation/fast
+Executable/fast:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/build
+.PHONY : Executable/fast
 
-#=============================================================================
-# Target rules for targets named M2_Projet_Synthese
+src/aide.o: src/aide.c.o
 
-# Build rule for target.
-M2_Projet_Synthese: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 M2_Projet_Synthese
-.PHONY : M2_Projet_Synthese
-
-# fast build rule for target.
-M2_Projet_Synthese/fast:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/build
-.PHONY : M2_Projet_Synthese/fast
-
-Generation.o: Generation.c.o
-
-.PHONY : Generation.o
+.PHONY : src/aide.o
 
 # target to build an object file
-Generation.c.o:
-	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/Generation.c.o
-.PHONY : Generation.c.o
+src/aide.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/aide.c.o
+.PHONY : src/aide.c.o
 
-Generation.i: Generation.c.i
+src/aide.i: src/aide.c.i
 
-.PHONY : Generation.i
+.PHONY : src/aide.i
 
 # target to preprocess a source file
-Generation.c.i:
-	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/Generation.c.i
-.PHONY : Generation.c.i
+src/aide.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/aide.c.i
+.PHONY : src/aide.c.i
 
-Generation.s: Generation.c.s
+src/aide.s: src/aide.c.s
 
-.PHONY : Generation.s
+.PHONY : src/aide.s
 
 # target to generate assembly for a file
-Generation.c.s:
-	$(MAKE) -f CMakeFiles/Generation.dir/build.make CMakeFiles/Generation.dir/Generation.c.s
-.PHONY : Generation.c.s
+src/aide.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/aide.c.s
+.PHONY : src/aide.c.s
 
-main.o: main.c.o
+src/algorithms/heur_EDD.o: src/algorithms/heur_EDD.c.o
 
-.PHONY : main.o
+.PHONY : src/algorithms/heur_EDD.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.o
-.PHONY : main.c.o
+src/algorithms/heur_EDD.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_EDD.c.o
+.PHONY : src/algorithms/heur_EDD.c.o
 
-main.i: main.c.i
+src/algorithms/heur_EDD.i: src/algorithms/heur_EDD.c.i
 
-.PHONY : main.i
+.PHONY : src/algorithms/heur_EDD.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.i
-.PHONY : main.c.i
+src/algorithms/heur_EDD.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_EDD.c.i
+.PHONY : src/algorithms/heur_EDD.c.i
 
-main.s: main.c.s
+src/algorithms/heur_EDD.s: src/algorithms/heur_EDD.c.s
 
-.PHONY : main.s
+.PHONY : src/algorithms/heur_EDD.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/M2_Projet_Synthese.dir/build.make CMakeFiles/M2_Projet_Synthese.dir/main.c.s
-.PHONY : main.c.s
+src/algorithms/heur_EDD.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_EDD.c.s
+.PHONY : src/algorithms/heur_EDD.c.s
+
+src/algorithms/heur_LPT.o: src/algorithms/heur_LPT.c.o
+
+.PHONY : src/algorithms/heur_LPT.o
+
+# target to build an object file
+src/algorithms/heur_LPT.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_LPT.c.o
+.PHONY : src/algorithms/heur_LPT.c.o
+
+src/algorithms/heur_LPT.i: src/algorithms/heur_LPT.c.i
+
+.PHONY : src/algorithms/heur_LPT.i
+
+# target to preprocess a source file
+src/algorithms/heur_LPT.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_LPT.c.i
+.PHONY : src/algorithms/heur_LPT.c.i
+
+src/algorithms/heur_LPT.s: src/algorithms/heur_LPT.c.s
+
+.PHONY : src/algorithms/heur_LPT.s
+
+# target to generate assembly for a file
+src/algorithms/heur_LPT.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_LPT.c.s
+.PHONY : src/algorithms/heur_LPT.c.s
+
+src/algorithms/heur_MinCost.o: src/algorithms/heur_MinCost.c.o
+
+.PHONY : src/algorithms/heur_MinCost.o
+
+# target to build an object file
+src/algorithms/heur_MinCost.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_MinCost.c.o
+.PHONY : src/algorithms/heur_MinCost.c.o
+
+src/algorithms/heur_MinCost.i: src/algorithms/heur_MinCost.c.i
+
+.PHONY : src/algorithms/heur_MinCost.i
+
+# target to preprocess a source file
+src/algorithms/heur_MinCost.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_MinCost.c.i
+.PHONY : src/algorithms/heur_MinCost.c.i
+
+src/algorithms/heur_MinCost.s: src/algorithms/heur_MinCost.c.s
+
+.PHONY : src/algorithms/heur_MinCost.s
+
+# target to generate assembly for a file
+src/algorithms/heur_MinCost.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_MinCost.c.s
+.PHONY : src/algorithms/heur_MinCost.c.s
+
+src/algorithms/heur_SPT.o: src/algorithms/heur_SPT.c.o
+
+.PHONY : src/algorithms/heur_SPT.o
+
+# target to build an object file
+src/algorithms/heur_SPT.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_SPT.c.o
+.PHONY : src/algorithms/heur_SPT.c.o
+
+src/algorithms/heur_SPT.i: src/algorithms/heur_SPT.c.i
+
+.PHONY : src/algorithms/heur_SPT.i
+
+# target to preprocess a source file
+src/algorithms/heur_SPT.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_SPT.c.i
+.PHONY : src/algorithms/heur_SPT.c.i
+
+src/algorithms/heur_SPT.s: src/algorithms/heur_SPT.c.s
+
+.PHONY : src/algorithms/heur_SPT.s
+
+# target to generate assembly for a file
+src/algorithms/heur_SPT.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_SPT.c.s
+.PHONY : src/algorithms/heur_SPT.c.s
+
+src/algorithms/heur_Slack.o: src/algorithms/heur_Slack.c.o
+
+.PHONY : src/algorithms/heur_Slack.o
+
+# target to build an object file
+src/algorithms/heur_Slack.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_Slack.c.o
+.PHONY : src/algorithms/heur_Slack.c.o
+
+src/algorithms/heur_Slack.i: src/algorithms/heur_Slack.c.i
+
+.PHONY : src/algorithms/heur_Slack.i
+
+# target to preprocess a source file
+src/algorithms/heur_Slack.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_Slack.c.i
+.PHONY : src/algorithms/heur_Slack.c.i
+
+src/algorithms/heur_Slack.s: src/algorithms/heur_Slack.c.s
+
+.PHONY : src/algorithms/heur_Slack.s
+
+# target to generate assembly for a file
+src/algorithms/heur_Slack.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_Slack.c.s
+.PHONY : src/algorithms/heur_Slack.c.s
+
+src/instance_gen.o: src/instance_gen.c.o
+
+.PHONY : src/instance_gen.o
+
+# target to build an object file
+src/instance_gen.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/instance_gen.c.o
+.PHONY : src/instance_gen.c.o
+
+src/instance_gen.i: src/instance_gen.c.i
+
+.PHONY : src/instance_gen.i
+
+# target to preprocess a source file
+src/instance_gen.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/instance_gen.c.i
+.PHONY : src/instance_gen.c.i
+
+src/instance_gen.s: src/instance_gen.c.s
+
+.PHONY : src/instance_gen.s
+
+# target to generate assembly for a file
+src/instance_gen.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/instance_gen.c.s
+.PHONY : src/instance_gen.c.s
+
+src/main.o: src/main.c.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/main.c.o
+.PHONY : src/main.c.o
+
+src/main.i: src/main.c.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/main.c.i
+.PHONY : src/main.c.i
+
+src/main.s: src/main.c.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/main.c.s
+.PHONY : src/main.c.s
 
 # Help Target
 help:
@@ -196,16 +345,33 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Generation"
-	@echo "... M2_Projet_Synthese"
-	@echo "... Generation.o"
-	@echo "... Generation.i"
-	@echo "... Generation.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... rebuild_cache"
+	@echo "... Executable"
+	@echo "... src/aide.o"
+	@echo "... src/aide.i"
+	@echo "... src/aide.s"
+	@echo "... src/algorithms/heur_EDD.o"
+	@echo "... src/algorithms/heur_EDD.i"
+	@echo "... src/algorithms/heur_EDD.s"
+	@echo "... src/algorithms/heur_LPT.o"
+	@echo "... src/algorithms/heur_LPT.i"
+	@echo "... src/algorithms/heur_LPT.s"
+	@echo "... src/algorithms/heur_MinCost.o"
+	@echo "... src/algorithms/heur_MinCost.i"
+	@echo "... src/algorithms/heur_MinCost.s"
+	@echo "... src/algorithms/heur_SPT.o"
+	@echo "... src/algorithms/heur_SPT.i"
+	@echo "... src/algorithms/heur_SPT.s"
+	@echo "... src/algorithms/heur_Slack.o"
+	@echo "... src/algorithms/heur_Slack.i"
+	@echo "... src/algorithms/heur_Slack.s"
+	@echo "... src/instance_gen.o"
+	@echo "... src/instance_gen.i"
+	@echo "... src/instance_gen.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

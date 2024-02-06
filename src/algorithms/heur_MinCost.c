@@ -1,0 +1,32 @@
+#include "heur_MinCost.h"
+#include "instance_gen.h"
+
+Task* minimum_cost_rule(Task *tasks, int n) {
+    // Copie des tâches pour ne pas modifier l'ordre initial
+    Task* tasks_copy = malloc(sizeof(Task));
+    Task* tasks_result = malloc(sizeof(Task));
+    tasks_result = memcpy(tasks_result, tasks, sizeof(Task) * n);
+    tasks_copy = memcpy(tasks_copy, tasks, sizeof(Task) * n);
+
+    for (int i = n; i > 0; i--) {
+        int pos_task_to_place = smallest_tardiness(tasks_copy, i);
+        tasks_result[i - 1] = tasks_copy[pos_task_to_place];
+        delete_task(tasks_copy, i, pos_task_to_place);
+    }
+
+    return tasks_result;
+}
+
+void test_minCost(Task *tasks, int n) {
+    clock_t start, end;
+    double cpu_time_used;
+    for (int i = 0; i < 10; i++) {
+        generate_tasks(tasks, n, 10, 100, 2, 20);
+        start = clock();
+        minimum_cost_rule(tasks, n);
+        end = clock();
+        cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+        int tardiness = calculateWeightedTardiness(tasks, n);
+        save_results_to_file("../output/MinCost.csv", i, cpu_time_used, tardiness);
+    }
+}
