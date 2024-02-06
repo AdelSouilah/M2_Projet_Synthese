@@ -1,30 +1,22 @@
-#pragma once
-
-#include "../../HelperFunctions.c"
+#include "rech_taboo.h"
+#include "instance_gen.h"
 
 #define NUM_NEIGHBORS 20  // Nombre de voisins à générer par itération
 #define NUM_ITERATIONS 5  // Nombre total d'itérations
 
 #define TABOO_SIZE 10  // Taille de la liste tabou
 
-typedef struct {
-    int task1;
-    int task2;
-} TabooMove;
-
 TabooMove tabooList[TABOO_SIZE];
 int tabooIndex = 0;
 
 // Taboo search
 void addTabooMove(int task1, int task2) {
-    printf("Ajout de la permutation %d %d dans la liste tabou\n", task1, task2);
     tabooList[tabooIndex].task1 = task1;
     tabooList[tabooIndex].task2 = task2;
     tabooIndex = (tabooIndex + 1) % TABOO_SIZE;
 }
 
 int isTaboo(int task1, int task2) {
-//    printf("Recherche de la permutation %d %d dans la liste tabou\n", task1, task2);
     for (int i = 0; i < TABOO_SIZE; i++) {
         if ((tabooList[i].task1 == task1 && tabooList[i].task2 == task2) ||
             (tabooList[i].task1 == task2 && tabooList[i].task2 == task1)) {
@@ -35,7 +27,6 @@ int isTaboo(int task1, int task2) {
 }
 
 void swapTasks(Task *tasks, int i, int j) {
-    printf("Permutation des taches %d et %d\n", i, j);
     Task temp = tasks[i];
     tasks[i] = tasks[j];
     tasks[j] = temp;
@@ -47,13 +38,6 @@ void tabooSearch(Task *tasks, int n) {
     int bestTardiness = calculateWeightedTardiness(tasks, n);
 
     for (int iteration = 0; iteration < NUM_ITERATIONS; iteration++) {
-        printf("Iteration %d\n", iteration);
-
-        printf("Meilleure solution actuelle : ");
-        display_schedule_abridged(currentSolution, n);
-        printf("Meilleure solution : ");
-        display_schedule_abridged(bestSolution, n);
-
         memcpy(currentSolution, bestSolution, n * sizeof(Task));
         int currentBestTardiness = bestTardiness;
 
@@ -84,5 +68,15 @@ void tabooSearch(Task *tasks, int n) {
     }
 
     memcpy(tasks, bestSolution, n * sizeof(Task));  // Restaurer la meilleure solution trouvée
-    printf("Meilleure retard trouve: %d\n", bestTardiness);
+}
+
+void test_taboo(Task *tasks, int i, int n) {
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+    tabooSearch(tasks, n);
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    int tardiness = calculateWeightedTardiness(tasks, n);
+    save_results_to_file("../output/result.csv", i, cpu_time_used, tardiness);
 }

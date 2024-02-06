@@ -1,5 +1,5 @@
-#ifndef INSTANCE_GEN_H
-#define INSTANCE_GEN_H
+#ifndef M2_PROJET_SYNTHESE_INSTANCE_GEN_H
+#define M2_PROJET_SYNTHESE_INSTANCE_GEN_H
 
 #include "aide.h"
 
@@ -9,6 +9,4 @@ void print_task_to_file(Task *tasks, int n, char *filename);
 
 void save_results_to_file(char *filename, int taskID, double executionTime, int tardiness);
 
-int compare_edd(const void *a, const void *b);
-
-#endif //INSTANCE_GEN_H
+#endif //M2_PROJET_SYNTHESE_INSTANCE_GEN_H

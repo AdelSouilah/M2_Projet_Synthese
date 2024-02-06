@@ -285,6 +285,33 @@ src/algorithms/heur_Slack.c.s:
 	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/heur_Slack.c.s
 .PHONY : src/algorithms/heur_Slack.c.s
 
+src/algorithms/rech_taboo.o: src/algorithms/rech_taboo.c.o
+
+.PHONY : src/algorithms/rech_taboo.o
+
+# target to build an object file
+src/algorithms/rech_taboo.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/rech_taboo.c.o
+.PHONY : src/algorithms/rech_taboo.c.o
+
+src/algorithms/rech_taboo.i: src/algorithms/rech_taboo.c.i
+
+.PHONY : src/algorithms/rech_taboo.i
+
+# target to preprocess a source file
+src/algorithms/rech_taboo.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/rech_taboo.c.i
+.PHONY : src/algorithms/rech_taboo.c.i
+
+src/algorithms/rech_taboo.s: src/algorithms/rech_taboo.c.s
+
+.PHONY : src/algorithms/rech_taboo.s
+
+# target to generate assembly for a file
+src/algorithms/rech_taboo.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/algorithms/rech_taboo.c.s
+.PHONY : src/algorithms/rech_taboo.c.s
+
 src/instance_gen.o: src/instance_gen.c.o
 
 .PHONY : src/instance_gen.o
@@ -311,6 +338,33 @@ src/instance_gen.s: src/instance_gen.c.s
 src/instance_gen.c.s:
 	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/instance_gen.c.s
 .PHONY : src/instance_gen.c.s
+
+src/instance_info.o: src/instance_info.c.o
+
+.PHONY : src/instance_info.o
+
+# target to build an object file
+src/instance_info.c.o:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/instance_info.c.o
+.PHONY : src/instance_info.c.o
+
+src/instance_info.i: src/instance_info.c.i
+
+.PHONY : src/instance_info.i
+
+# target to preprocess a source file
+src/instance_info.c.i:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/instance_info.c.i
+.PHONY : src/instance_info.c.i
+
+src/instance_info.s: src/instance_info.c.s
+
+.PHONY : src/instance_info.s
+
+# target to generate assembly for a file
+src/instance_info.c.s:
+	$(MAKE) -f CMakeFiles/Executable.dir/build.make CMakeFiles/Executable.dir/src/instance_info.c.s
+.PHONY : src/instance_info.c.s
 
 src/main.o: src/main.c.o
 
@@ -366,9 +420,15 @@ help:
 	@echo "... src/algorithms/heur_Slack.o"
 	@echo "... src/algorithms/heur_Slack.i"
 	@echo "... src/algorithms/heur_Slack.s"
+	@echo "... src/algorithms/rech_taboo.o"
+	@echo "... src/algorithms/rech_taboo.i"
+	@echo "... src/algorithms/rech_taboo.s"
 	@echo "... src/instance_gen.o"
 	@echo "... src/instance_gen.i"
 	@echo "... src/instance_gen.s"
+	@echo "... src/instance_info.o"
+	@echo "... src/instance_info.i"
+	@echo "... src/instance_info.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -61,7 +61,7 @@ int calculate_tardiness(Task *tasks, int n) {
 
 int smallest_tardiness(Task *tasks, int n) {
     int sum_pi = calculate_cost(tasks, n);
-    int smallest_task_tardiness = 99999999;
+    int smallest_task_tardiness = 999999999;
     int smallest_task_position = 0;
     for (int i = 0; i < n; i++){
         if (tasks[i].di >= sum_pi) {

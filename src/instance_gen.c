@@ -10,11 +10,10 @@ void generate_tasks(Task *tasks, int n, int pi_min, int pi_max, int di_min, int 
 
 void print_task_to_file(Task *tasks, int n, char *filename) {
     FILE *file = fopen(filename, "a");
-    fprintf(file, "di1,pi1;di2,pi2;...;din,pin\n");
     for (int i = 0; i < n - 1; i++) {
         fprintf(file, "%d,%d;",tasks[i].di, tasks[i].pi);
     }
-    fprintf(file, "%d,%d",tasks[n - 1].di, tasks[n - 1].pi);
+    fprintf(file, "%d,%d\n",tasks[n - 1].di, tasks[n - 1].pi);
     fclose(file);
 }
 

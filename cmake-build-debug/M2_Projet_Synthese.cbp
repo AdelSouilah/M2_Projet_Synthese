@@ -99,6 +99,12 @@
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/instance_gen.h">
 			<Option target="Executable"/>
 		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/instance_info.h">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/rech_taboo.h">
+			<Option target="Executable"/>
+		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/task.h">
 			<Option target="Executable"/>
 		</Unit>
@@ -120,7 +126,13 @@
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/heur_Slack.c">
 			<Option target="Executable"/>
 		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/rech_taboo.c">
+			<Option target="Executable"/>
+		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/instance_gen.c">
+			<Option target="Executable"/>
+		</Unit>
+		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/instance_info.c">
 			<Option target="Executable"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/main.c">

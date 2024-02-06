@@ -11,16 +11,13 @@ void edd_rule(Task *tasks, int n) {
     qsort(tasks, n, sizeof(Task), compare_edd);
 }
 
-void test_edd(Task *tasks, int n) {
+void test_edd(Task *tasks, int i, int n) {
     clock_t start, end;
     double cpu_time_used;
-    for (int i = 0; i < 10; i++) {
-        generate_tasks(tasks, n, 10, 100, 2, 20);
-        start = clock();
-        edd_rule(tasks, n);
-        end = clock();
-        cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-        int tardiness = calculateWeightedTardiness(tasks, n);
-        save_results_to_file("../output/EDD.csv", i, cpu_time_used, tardiness);
-    }
+    start = clock();
+    edd_rule(tasks, n);
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    int tardiness = calculateWeightedTardiness(tasks, n);
+    save_results_to_file("../output/result.csv", i, cpu_time_used, tardiness);
 }
