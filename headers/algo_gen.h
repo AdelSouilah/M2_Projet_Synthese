@@ -18,14 +18,12 @@ typedef struct {
 
 // Prototypes des fonctions
 void evaluerFitness(Individu* individu);
-void initialiserPopulation(Individu population[POPULATION_SIZE], Task *ptr, int i);
+void initialiserPopulation(Individu population[POPULATION_SIZE], Task *tasks, int i);
 void selectionnerParTournoi(Individu population[POPULATION_SIZE], int taillePopulation, Individu **parentSelectionne);
-void croiser(Individu parent1, Individu parent2, Individu* enfant1, Individu* enfant2);
-void muter(Individu* individu);
-void remplacerPopulation(Individu population[POPULATION_SIZE], Individu nouveauxIndividus[POPULATION_SIZE]);
-void croiserUnPoint(Individu parent1, Individu parent2, Individu *enfant1, Individu *enfant2);
-void muterParEchange(Individu *individu);
-int contient(int sequence[], int longueur, int job);
+void croiser(Individu **parent1, Individu **parent2, Individu *enfant1, Individu *enfant2);
+void muter(Individu *individu);
+void selectionElitiste(Individu population[], Individu enfants[], int taillePopulation);
+void remplacementGenerationnel(Individu population[], Individu enfants[], int taillePopulation);
 void trierParFitness(Individu population[], int taille);
 int algo_gen(Task *tasks, int n);
 void test_algo_gen(Task *tasks, int n);
