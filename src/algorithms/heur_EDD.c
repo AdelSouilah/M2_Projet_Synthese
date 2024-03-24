@@ -19,5 +19,6 @@ void test_edd(Task *tasks, int n) {
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     int tardiness = calculateWeightedTardiness(tasks, n);
+    printf("Retard edd: %d\n", tardiness);
     save_tard_and_time_to_file("../output/result.csv", cpu_time_used, tardiness);
 }
