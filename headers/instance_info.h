@@ -17,6 +17,6 @@ void calculateVariance(Task *tasks, int numTasks, double avgDuration, double avg
 void calculateStandardDeviation(double varianceDuration, double varianceDeadline, double *stdDevDuration, double *stdDevDeadline);
 
 // Fonction pour calculer toutes les valeurs
-void calculateAllValues(Task *tasks, int n);
+void calculateAllMetaValues(Task *tasks, int n);
 
 #endif //M2_PROJET_SYNTHESE_INSTANCE_INFO_H

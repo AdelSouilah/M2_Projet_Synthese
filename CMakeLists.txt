@@ -16,6 +16,7 @@ add_executable(Executable src/main.c
         headers/task.h
         headers/rech_taboo.h
         headers/instance_info.h
+        headers/algo_gen.h
         src/aide.c
         src/algorithms/heur_EDD.c
         src/algorithms/heur_LPT.c
@@ -23,6 +24,7 @@ add_executable(Executable src/main.c
         src/algorithms/heur_Slack.c
         src/algorithms/heur_SPT.c
         src/algorithms/rech_taboo.c
+        src/algorithms/algo_gen.c
         src/instance_gen.c
         src/instance_info.c)
 

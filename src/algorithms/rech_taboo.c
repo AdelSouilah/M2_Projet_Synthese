@@ -70,7 +70,7 @@ void tabooSearch(Task *tasks, int n) {
     memcpy(tasks, bestSolution, n * sizeof(Task));  // Restaurer la meilleure solution trouvée
 }
 
-void test_taboo(Task *tasks, int i, int n) {
+void test_taboo(Task *tasks, int n) {
     clock_t start, end;
     double cpu_time_used;
     start = clock();

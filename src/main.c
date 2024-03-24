@@ -10,6 +10,7 @@
 #include "instance_gen.h"
 #include "rech_taboo.h"
 #include "instance_info.h"
+#include "algo_gen.h"
 
 int main() {
     srand(time(0));
@@ -23,14 +24,15 @@ int main() {
         print_task_to_file(tasks, n, "../output/instances.csv");
         save_id_to_file("../output/result.csv", i);
 
-        test_edd(tasks, i, n);
-        test_lpt(tasks, i, n);
-        test_spt(tasks, i, n);
-        test_slack(tasks, i, n);
-        test_minCost(tasks, i, n);
-        test_taboo(tasks, i, n);
+/*        test_edd(tasks, n);
+        test_lpt(tasks, n);
+        test_spt(tasks, n);
+        test_slack(tasks, n);
+        test_minCost(tasks, n);
+        test_taboo(tasks, n);*/
+        test_algo_gen(tasks, n);
 
-        calculateAllValues(tasks, n);
+        calculateAllMetaValues(tasks, n);
     }
 
     // TODO

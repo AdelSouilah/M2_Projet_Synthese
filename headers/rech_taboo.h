@@ -13,7 +13,7 @@ typedef struct {
     int task2;
 } TabooMove;
 
-TabooMove tabooList[TABOO_SIZE];
+extern TabooMove tabooList[TABOO_SIZE];
 
 void addTabooMove(int task1, int task2);
 
@@ -23,6 +23,6 @@ void swapTasks(Task *tasks, int i, int j);
 
 void tabooSearch(Task *tasks, int n);
 
-void test_taboo(Task *tasks, int i, int n);
+void test_taboo(Task *tasks, int n);
 
 #endif //M2_PROJET_SYNTHESE_RECH_TABOO_H

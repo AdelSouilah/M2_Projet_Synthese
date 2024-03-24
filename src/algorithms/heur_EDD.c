@@ -11,7 +11,7 @@ void edd_rule(Task *tasks, int n) {
     qsort(tasks, n, sizeof(Task), compare_edd);
 }
 
-void test_edd(Task *tasks, int i, int n) {
+void test_edd(Task *tasks, int n) {
     clock_t start, end;
     double cpu_time_used;
     start = clock();

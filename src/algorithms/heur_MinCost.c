@@ -17,7 +17,7 @@ Task* minimum_cost_rule(Task *tasks, int n) {
     return tasks_result;
 }
 
-void test_minCost(Task *tasks, int i, int n) {
+void test_minCost(Task *tasks, int n) {
     clock_t start, end;
     double cpu_time_used;
     start = clock();

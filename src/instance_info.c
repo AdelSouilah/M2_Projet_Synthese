@@ -37,7 +37,7 @@ void calculateStandardDeviation(double varianceDuration, double varianceDeadline
     *stdDevDeadline = sqrt(varianceDeadline);
 }
 
-void calculateAllValues(Task *tasks, int n) {
+void calculateAllMetaValues(Task *tasks, int n) {
     double avgDuration, avgDeadline;
     double varianceDuration, varianceDeadline;
     double stdDevDuration, stdDevDeadline;
@@ -52,6 +52,7 @@ void calculateAllValues(Task *tasks, int n) {
     printf("Variance des dates de fin (di): %.2f\n", varianceDeadline);
     printf("Ecart type des durees (pi): %.2f\n", stdDevDuration);
     printf("Ecart type des dates de fin (di): %.2f\n", stdDevDeadline);*/
+
     save_inst_info_to_file("../output/result.csv", avgDuration, avgDeadline, varianceDuration, varianceDeadline,
                            stdDevDuration, stdDevDeadline);
 }

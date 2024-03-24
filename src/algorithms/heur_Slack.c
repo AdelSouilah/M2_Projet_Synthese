@@ -11,7 +11,7 @@ void minimum_slack_rule(Task *tasks, int n) {
     qsort(tasks, n, sizeof(Task), compare_slack);
 }
 
-void test_slack(Task *tasks, int i, int n) {
+void test_slack(Task *tasks, int n) {
     clock_t start, end;
     double cpu_time_used;
     start = clock();
