@@ -17,6 +17,7 @@ add_executable(Executable src/main.c
         headers/rech_taboo.h
         headers/instance_info.h
         headers/algo_gen.h
+        headers/branch_and_bound.h
         src/aide.c
         src/algorithms/heur_EDD.c
         src/algorithms/heur_LPT.c
@@ -25,7 +26,14 @@ add_executable(Executable src/main.c
         src/algorithms/heur_SPT.c
         src/algorithms/rech_taboo.c
         src/algorithms/algo_gen.c
+        src/algorithms/branch_and_bound.c
         src/instance_gen.c
         src/instance_info.c)
+
+add_executable(Executable2
+        headers/aide.h
+        headers/branch_and_bound.h
+        src/aide.c
+        src/algorithms/branch_and_bound.c)
 
 target_link_libraries(Executable PRIVATE m)
