@@ -34,18 +34,19 @@ void initialiserPopulation(Individu population[POPULATION_SIZE], Task *tasks, in
 }
 
 
-/*void selectionnerParTournoi(Individu population[POPULATION_SIZE], Individu *parent) {
-    int meilleurIndex = rand() % POPULATION_SIZE;
+void selectionnerParTournoi(Individu population[POPULATION_SIZE], int taillePopulation, Individu **parentSelectionne) {
+    int meilleurIndex = rand() % taillePopulation;
     for (int i = 0; i < 2; i++) { // Tournoi entre 2 individus
-        int index = rand() % POPULATION_SIZE;
+        int index = rand() % taillePopulation;
         if (population[index].fitness < population[meilleurIndex].fitness) {
             meilleurIndex = index;
         }
     }
-    *parent = population[meilleurIndex];
+    *parentSelectionne = &population[meilleurIndex];
 }
 
-void croiserUnPoint(Individu parent1, Individu parent2, Individu *enfant1, Individu *enfant2) {
+
+/*void croiserUnPoint(Individu parent1, Individu parent2, Individu *enfant1, Individu *enfant2) {
     int pointDeCroisement = rand() % (NBR_JOBS - 1) + 1; // Éviter les extrémités
 
     // Initialiser les enfants avec des valeurs non valides
@@ -142,18 +143,24 @@ int algo_gen(Task *tasks, int n) {
     initialiserPopulation(population, tasks, n);
 
     for (int generation = 0; generation < NUM_GENERATIONS; generation++) {
-        /*Individu nouveauxIndividus[POPULATION_SIZE];
+        Individu nouveauxIndividus[POPULATION_SIZE];
 
         // Boucle de reproduction
         for (int i = 0; i < POPULATION_SIZE; i += 2) {
-            Individu parents[2];
+
+            Individu* parent1;
+            Individu* parent2;
+
             Individu enfant1, enfant2;
 
-            // Sélection des parents
-            selectionner(population, parents);
+            // Sélection du premier parent
+            selectionnerParTournoi(population, POPULATION_SIZE, &parent1);
+            // Sélection du deuxième parent
+            selectionnerParTournoi(population, POPULATION_SIZE, &parent2);
 
+            printf("Hello");
             // Croisement
-            croiser(parents[0], parents[1], &enfant1, &enfant2);
+     /*       croiser(parents[0], parents[1], &enfant1, &enfant2);
 
             // Mutation
             muter(&enfant1);
@@ -161,11 +168,11 @@ int algo_gen(Task *tasks, int n) {
 
             // Ajouter les enfants à la nouvelle population
             nouveauxIndividus[i] = enfant1;
-            if (i + 1 < POPULATION_SIZE) nouveauxIndividus[i + 1] = enfant2;
+            if (i + 1 < POPULATION_SIZE) nouveauxIndividus[i + 1] = enfant2;*/
         }
 
         // Remplacer l'ancienne population par la nouvelle
-        remplacerPopulation(population, nouveauxIndividus);*/
+//        remplacerPopulation(population, nouveauxIndividus);
     }
 
     // Afficher la meilleure solution

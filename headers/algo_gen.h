@@ -19,11 +19,10 @@ typedef struct {
 // Prototypes des fonctions
 void evaluerFitness(Individu* individu);
 void initialiserPopulation(Individu population[POPULATION_SIZE], Task *ptr, int i);
-void selectionner(Individu population[POPULATION_SIZE], Individu parents[2]);
+void selectionnerParTournoi(Individu population[POPULATION_SIZE], int taillePopulation, Individu **parentSelectionne);
 void croiser(Individu parent1, Individu parent2, Individu* enfant1, Individu* enfant2);
 void muter(Individu* individu);
 void remplacerPopulation(Individu population[POPULATION_SIZE], Individu nouveauxIndividus[POPULATION_SIZE]);
-void selectionnerParTournoi(Individu population[POPULATION_SIZE], Individu *parent);
 void croiserUnPoint(Individu parent1, Individu parent2, Individu *enfant1, Individu *enfant2);
 void muterParEchange(Individu *individu);
 int contient(int sequence[], int longueur, int job);
