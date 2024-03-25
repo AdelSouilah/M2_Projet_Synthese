@@ -15,48 +15,71 @@ typedef struct Node {
 // Prototypes des fonctions
 void branch_and_bound(Task tasks[], int n);
 
-void calculateBoundAndTardiness(Node *node, Task tasks[], int n);
-
-int calculateTardiness(int sequence[], Task tasks[], int n);
-
-// Mettez ici les implémentations des fonctions calculateBoundAndTardiness et calculateTardiness
-
-// Calcule la tardiveté d'une séquence de tâches
-int calculateTardiness(int sequence[], Task tasks[], int n) {
+int calculateTardiness(int sequence[], Task tasks[], int nbTasks) {
+    int sum_pi = 0;
     int tardiness = 0;
-    int currentTime = 0;
 
-    for (int i = 0; i < n; i++) {
-        Task task = tasks[sequence[i]];
-        currentTime += task.pi;
-        if (currentTime > task.di) {
-            tardiness += (currentTime - task.di) * task.pi; // Ponderation par pi si nécessaire
+    for (int i = 0; i < nbTasks; ++i) {
+        int taskId = sequence[i]; // Get the task ID from the sequence
+        // Find the corresponding task by ID
+        for (int j = 0; j < nbTasks; ++j) {
+            if (tasks[j].i == taskId) {
+                sum_pi += tasks[j].pi;
+                int task_tardiness = max(0, sum_pi - tasks[j].di);
+                tardiness += tasks[j].pi * task_tardiness;
+                break; // Break since we found the task
+            }
         }
     }
-
     return tardiness;
 }
 
-// Met à jour la borne inférieure et la tardiveté totale pour un nœud donné
+int calculateWeightedTardinessBranch(Task tasks[], int sequence[], int n) {
+    int currentTime = 0;
+    int totalWeightedTardiness = 0;
+
+    for (int i = 0; i < n; i++) {
+        Task currentTask = tasks[sequence[i]];
+        currentTime += currentTask.pi;
+        int tardiness = max(0, currentTime - currentTask.di);
+        totalWeightedTardiness += currentTask.pi * tardiness;
+    }
+
+    return totalWeightedTardiness;
+}
+
 void calculateBoundAndTardiness(Node *node, Task tasks[], int n) {
-    // Supposons que la borne inférieure soit simplement la tardiveté actuelle
-    // Plusieurs approches peuvent être utilisées pour calculer une borne inférieure plus serrée
-    node->totalTardiness = calculateTardiness(node->sequence, tasks, n);
-    node->bound = node->totalTardiness; // Simplification pour l'exemple
+    if (node->nbTasks > 0) {
+        node->totalTardiness = calculateWeightedTardinessBranch(tasks, node->sequence, node->nbTasks);
+    } else {
+        node->totalTardiness = 0;
+    }
+    node->bound = node->totalTardiness;
+    printf("Calculating bounds for node with %d tasks. Total tardiness: %d\n", node->nbTasks, node->totalTardiness);
 }
 
 void exploreTree(Node *currentNode, Task tasks[], int n, int *bestTardiness, int bestSequence[]) {
+    printf("Exploring node with %d tasks. Current sequence: ", currentNode->nbTasks);
+    for (int i = 0; i < currentNode->nbTasks; i++) {
+        printf("%d ", currentNode->sequence[i]);
+    }
+    printf("\n");
+
+    int currentTardiness = calculateWeightedTardinessBranch(tasks, currentNode->sequence, currentNode->nbTasks);
+    printf("Current tardiness: %d\n", currentTardiness);
+
     if (currentNode->nbTasks == n) {
-        // Si le nœud est une feuille (solution complète), vérifiez si c'est la meilleure solution
-        if (currentNode->totalTardiness < *bestTardiness) {
-            *bestTardiness = currentNode->totalTardiness;
+        if (currentTardiness < *bestTardiness) {
+            *bestTardiness = currentTardiness;
+            memcpy(bestSequence, currentNode->sequence, n * sizeof(int));
+            printf("New best sequence found with tardiness %d: ", *bestTardiness);
             for (int i = 0; i < n; i++) {
-                bestSequence[i] = currentNode->sequence[i];
+                printf("%d ", bestSequence[i]);
             }
+            printf("\n");
         }
     } else {
         for (int i = 0; i < n; i++) {
-            // Vérifiez si la tâche i est déjà dans la séquence
             int found = 0;
             for (int j = 0; j < currentNode->nbTasks; j++) {
                 if (currentNode->sequence[j] == i) {
@@ -65,36 +88,55 @@ void exploreTree(Node *currentNode, Task tasks[], int n, int *bestTardiness, int
                 }
             }
             if (!found) {
-                Node child = *currentNode;
-                child.sequence[child.nbTasks++] = i;
+                Node child;
+                memcpy(child.sequence, currentNode->sequence, currentNode->nbTasks * sizeof(int));
+                child.sequence[currentNode->nbTasks] = i;
+                child.nbTasks = currentNode->nbTasks + 1;
+                printf("Creating child node with %d tasks. Adding task: %d\n", child.nbTasks, i);
+
                 calculateBoundAndTardiness(&child, tasks, n);
                 if (child.bound < *bestTardiness) {
+                    printf("Exploring child node...\n");
                     exploreTree(&child, tasks, n, bestTardiness, bestSequence);
+                } else {
+                    printf("Pruning child node with bound %d and best tardiness %d\n", child.bound, *bestTardiness);
                 }
             }
         }
     }
 }
 
-// La fonction principale branch_and_bound
 void branch_and_bound(Task tasks[], int n) {
-    int bestTardiness = calculateWeightedTardiness(tasks, n);
+    printf("Initial Tasks:\n");
+    for (int i = 0; i < n; ++i) {
+        printf("Task %d: pi=%d, di=%d\n", tasks[i].i, tasks[i].pi, tasks[i].di);
+    }
+
+    int initialSequence[MAX_TASKS];
+    for (int i = 0; i < n; i++) {
+        initialSequence[i] = i; // Initial sequence based on task index order
+    }
+
+    // Initial best tardiness based on the original order of tasks
+    int bestTardiness = calculateWeightedTardinessBranch(tasks, initialSequence, n);
     int bestSequence[MAX_TASKS];
 
-    // Initialisation du nœud racine
+    for (int i = 0; i < n; i++) {
+        bestSequence[i] = i; // Initialize bestSequence with the task indices
+    }
+
     Node root;
     root.nbTasks = 0;
     root.totalTardiness = 0;
-    calculateBoundAndTardiness(&root, tasks, n);
+    calculateBoundAndTardiness(&root, tasks, n); // Corrected to pass 'n' as the third argument
 
-    // Exploration de l'arbre de recherche pour trouver la meilleure séquence
     exploreTree(&root, tasks, n, &bestTardiness, bestSequence);
 
-    // Affichage de la meilleure séquence et de la tardiveté totale minimale
+    printf("Best sequence: ");
     for (int i = 0; i < n; i++) {
-        printf("%d ", tasks[bestSequence[i]].i); // Utilisez l'ID de la tâche et non l'indice
+        printf("%d ", bestSequence[i]);
     }
-    printf("\nRetard total minimal: %d\n", bestTardiness);
+    printf("\nBest tardiness: %d\n", bestTardiness);
 }
 
 int main() {
