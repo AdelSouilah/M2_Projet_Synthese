@@ -1,11 +1,12 @@
 #include "algo_gen.h"
 
-void evaluerFitness(Individu *individu) {
+void evaluerFitness(Individu *individu, int n) {
     int retardTotal = 0;
     int tempsCompletion = 0;
 
-    for (int j = 0; j < NBR_JOBS; j++) {
+    for (int j = 0; j < n; j++) {
         Task *tache = individu->sequence[j];
+//        printf("tache %d\n", tache->pi);
         tempsCompletion += tache->pi;
         int retard = tempsCompletion > tache->di ? tempsCompletion - tache->di : 0;
         retardTotal += tache->pi * retard;
@@ -16,6 +17,7 @@ void evaluerFitness(Individu *individu) {
 
 void initialiserPopulation(Individu population[POPULATION_SIZE], Task *tasks, int n) {
     for (int i = 0; i < POPULATION_SIZE; i++) {
+        population[i].sequence = malloc(n * sizeof(Task*));
         // Initialiser avec l'ordre par défaut
         for (int j = 0; j < n; j++) {
             population[i].sequence[j] = &tasks[j]; // Stocker les adresses des tâches
@@ -29,7 +31,7 @@ void initialiserPopulation(Individu population[POPULATION_SIZE], Task *tasks, in
             population[i].sequence[indexAleatoire] = temp;
         }
 
-        evaluerFitness(&population[i]);
+        evaluerFitness(&population[i], n);
     }
 }
 
@@ -45,9 +47,9 @@ void selectionnerParTournoi(Individu population[POPULATION_SIZE], int taillePopu
 }
 
 
-void croiser(Individu **parent1, Individu **parent2, Individu *enfant1, Individu *enfant2) {
+void croiser(Individu **parent1, Individu **parent2, Individu *enfant1, Individu *enfant2, int n) {
     // Sélectionner un point de croisement aléatoire, à l'exception des extrémités
-    int pointCroisement = rand() % (NBR_JOBS - 2) + 1;
+    int pointCroisement = rand() % (n - 2) + 1;
     int enfant1Index = pointCroisement, enfant2Index = pointCroisement;
 
     // Copie directe depuis les parents jusqu'au point de croisement
@@ -57,7 +59,7 @@ void croiser(Individu **parent1, Individu **parent2, Individu *enfant1, Individu
     }
 
     // Pour la seconde partie, ajouter les tâches du parent opposé qui ne sont pas déjà présentes
-    for (int i = 0; i < NBR_JOBS; i++) {
+    for (int i = 0; i < n; i++) {
         Task* tacheParent2 = (*parent2)->sequence[i];
         Task* tacheParent1 = (*parent1)->sequence[i];
 
@@ -69,7 +71,7 @@ void croiser(Individu **parent1, Individu **parent2, Individu *enfant1, Individu
                 break;
             }
         }
-        if (!estDansEnfant1 && enfant1Index < NBR_JOBS) {
+        if (!estDansEnfant1 && enfant1Index < n) {
             enfant1->sequence[enfant1Index++] = tacheParent2;
         }
 
@@ -81,23 +83,23 @@ void croiser(Individu **parent1, Individu **parent2, Individu *enfant1, Individu
                 break;
             }
         }
-        if (!estDansEnfant2 && enfant2Index < NBR_JOBS) {
+        if (!estDansEnfant2 && enfant2Index < n) {
             enfant2->sequence[enfant2Index++] = tacheParent1;
         }
     }
 
-    evaluerFitness(enfant1);
-    evaluerFitness(enfant2);
+    evaluerFitness(enfant1, n);
+    evaluerFitness(enfant2, n);
 }
 
-void muter(Individu *individu) {
+void muter(Individu *individu, int n) {
     // Parcourir chaque tâche de l'individu
-    for (int i = 0; i < NBR_JOBS; i++) {
+    for (int i = 0; i < n; i++) {
         // Générer un nombre aléatoire entre 0 et 1 pour décider si la mutation doit avoir lieu
         float prob = (float) rand() / RAND_MAX;
         if (prob < TAUX_MUTATION) {
             // Sélectionner une autre tâche aléatoirement pour l'échange
-            int indexEchange = rand() % NBR_JOBS;
+            int indexEchange = rand() % n;
 
             // Échanger les tâches à l'indice i et indexEchange
             Task *temp = individu->sequence[i];
@@ -107,7 +109,7 @@ void muter(Individu *individu) {
     }
 
     // Recalculer la fitness de l'individu après la mutation
-    evaluerFitness(individu);
+    evaluerFitness(individu, n);
 }
 
 void selectionElitiste(Individu population[], Individu enfants[], int taillePopulation) {
@@ -148,6 +150,12 @@ void trierParFitness(Individu population[], int taille) {
     }
 }
 
+void libererPopulation(Individu population[POPULATION_SIZE]) {
+    for (int i = 0; i < POPULATION_SIZE; i++) {
+        free(population[i].sequence);
+    }
+}
+
 // Main function
 int algo_gen(Task *tasks, int n) {
     Individu population[POPULATION_SIZE];
@@ -166,20 +174,23 @@ int algo_gen(Task *tasks, int n) {
 
             Individu enfant1, enfant2;
 
+            enfant1.sequence = malloc(n * sizeof(Task*));
+            enfant2.sequence = malloc(n * sizeof(Task*));
+
             // Sélection du premier parent
             selectionnerParTournoi(population, POPULATION_SIZE, &parent1);
             // Sélection du deuxième parent
             selectionnerParTournoi(population, POPULATION_SIZE, &parent2);
 
             // Croisement
-            croiser(&parent1, &parent2, &enfant1, &enfant2);
+            croiser(&parent1, &parent2, &enfant1, &enfant2, n);
 
             // Mutation
-            muter(&enfant1);
-            muter(&enfant2);
+            muter(&enfant1, n);
+            muter(&enfant2, n);
 
-            evaluerFitness(&enfant1);
-            evaluerFitness(&enfant2);
+            evaluerFitness(&enfant1, n);
+            evaluerFitness(&enfant2, n);
 
             // Ajouter les enfants à la nouvelle population
             nouveauxIndividus[i] = enfant1;
@@ -210,6 +221,7 @@ int algo_gen(Task *tasks, int n) {
     }
     printf("\nRetard genetique: %d\n", population[meilleurIndex].fitness);*/
 
+    libererPopulation(population);
     // Retourner le retard du meilleur individu
     return population[meilleurIndex].fitness;
 }
@@ -222,6 +234,6 @@ void test_algo_gen(Task *tasks, int n) {
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     int tardiness2 = calculateWeightedTardiness(tasks, n);
-    printf("Retard genetique : %d\n\n", tardiness2);
+    printf("Retard genetique : %d\n", tardiness2);
     save_tard_and_time_to_file("../output/result.csv", cpu_time_used, tardiness);
 }

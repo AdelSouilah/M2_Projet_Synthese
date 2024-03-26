@@ -57,46 +57,6 @@
 					<DistClean command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Executable2">
-				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Executable2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/c/Developpement/M2_Projet_Synthese/headers"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Executable2"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Executable2/fast">
-				<Option output="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Executable2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/c/Developpement/M2_Projet_Synthese/headers"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 Executable2/fast"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/mnt/c/Developpement/M2_Projet_Synthese/cmake-build-debug"/>
 				<Option type="4"/>
@@ -120,14 +80,12 @@
 		</Build>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/aide.h">
 			<Option target="Executable"/>
-			<Option target="Executable2"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/algo_gen.h">
 			<Option target="Executable"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/branch_and_bound.h">
 			<Option target="Executable"/>
-			<Option target="Executable2"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/headers/heur_EDD.h">
 			<Option target="Executable"/>
@@ -158,14 +116,12 @@
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/aide.c">
 			<Option target="Executable"/>
-			<Option target="Executable2"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/algo_gen.c">
 			<Option target="Executable"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/branch_and_bound.c">
 			<Option target="Executable"/>
-			<Option target="Executable2"/>
 		</Unit>
 		<Unit filename="/mnt/c/Developpement/M2_Projet_Synthese/src/algorithms/heur_EDD.c">
 			<Option target="Executable"/>

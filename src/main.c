@@ -11,11 +11,12 @@
 #include "rech_taboo.h"
 #include "instance_info.h"
 #include "algo_gen.h"
+#include "branch_and_bound.h"
 
 int main() {
     srand(time(0));
 
-    int n = 100;
+    int n = 10;
     Task tasks[n];
 
     // Génération de 10 instances
@@ -31,6 +32,7 @@ int main() {
         test_minCost(tasks, n);
         test_taboo(tasks, n);
         test_algo_gen(tasks, n);
+        test_branch_and_bound(tasks, n);
 
         calculateAllMetaValues(tasks, n);
     }
