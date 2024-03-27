@@ -1,7 +1,7 @@
 #include "branch_and_bound.h"
 #include "instance_gen.h"
 
-int calculateTardiness(int sequence[], Task tasks[], int nbTasks) {
+/*int calculateTardiness(int sequence[], Task tasks[], int nbTasks) {
     int sum_pi = 0;
     int tardiness = 0;
 
@@ -18,7 +18,7 @@ int calculateTardiness(int sequence[], Task tasks[], int nbTasks) {
         }
     }
     return tardiness;
-}
+}*/
 
 int calculateWeightedTardinessBranch(Task tasks[], int sequence[], int n) {
     int currentTime = 0;
@@ -135,6 +135,6 @@ void test_branch_and_bound(Task *tasks, int n) {
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     int tardiness = calculateWeightedTardiness(tasks, n);
-    printf("Retard branch and bound: %d\n\n", tardiness);
+//    printf("Retard branch and bound: %d\n\n", tardiness);
     save_tard_and_time_to_file("../output/result.csv", cpu_time_used, tardiness);
 }

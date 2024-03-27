@@ -16,11 +16,11 @@
 int main() {
     srand(time(0));
 
-    int n = 10;
+    int n = 100;
     Task tasks[n];
 
     // Génération de 10 instances
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 100; i++) {
         generate_tasks(tasks, n, 10, 100, 2, 50);
         print_task_to_file(tasks, n, "../output/instances.csv");
         save_id_to_file("../output/result.csv", i);
@@ -32,13 +32,10 @@ int main() {
         test_minCost(tasks, n);
         test_taboo(tasks, n);
         test_algo_gen(tasks, n);
-        test_branch_and_bound(tasks, n);
+//        test_branch_and_bound(tasks, n);
 
         calculateAllMetaValues(tasks, n);
     }
 
-    // TODO
-    //  - ajouter taboo genetique assigment pour branch and bound
-    //  - ajouter des ratios de performances pour comparer les algos
     return 0;
 }

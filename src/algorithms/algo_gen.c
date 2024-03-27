@@ -46,7 +46,6 @@ void selectionnerParTournoi(Individu population[POPULATION_SIZE], int taillePopu
     *parentSelectionne = &population[meilleurIndex];
 }
 
-
 void croiser(Individu **parent1, Individu **parent2, Individu *enfant1, Individu *enfant2, int n) {
     // Sélectionner un point de croisement aléatoire, à l'exception des extrémités
     int pointCroisement = rand() % (n - 2) + 1;
@@ -234,6 +233,6 @@ void test_algo_gen(Task *tasks, int n) {
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     int tardiness2 = calculateWeightedTardiness(tasks, n);
-    printf("Retard genetique : %d\n", tardiness2);
+//    printf("Retard genetique : %d\n", tardiness2);
     save_tard_and_time_to_file("../output/result.csv", cpu_time_used, tardiness);
 }
