@@ -6,8 +6,8 @@
 #define MAX_TASKS 100
 
 typedef struct Node {
-    int sequence[MAX_TASKS]; // IDs des tâches dans l'ordre de planification
-    int nbTasks; // Nombre de tâches planifiées dans ce nœud
+    int sequence[MAX_TASKS]; // IDs des tâches dans l'ordre
+    int nbTasks;
     int bound; // Borne inférieure de la solution partielle
     int totalTardiness; // Retard total de la solution partielle
 } Node;

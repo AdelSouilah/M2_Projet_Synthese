@@ -4,18 +4,16 @@
 #include "aide.h"
 #include "instance_gen.h"
 
-#define POPULATION_SIZE 100 // Nombre d'individus de la population
-#define TAUX_CROISEMENT 0.8
+#define POPULATION_SIZE 100
+//#define TAUX_CROISEMENT 0.8
 #define TAUX_MUTATION 0.1
 #define NUM_GENERATIONS 1000
 
-// Structure pour un individu (solution)
 typedef struct {
-    Task** sequence; // Pointeur vers un tableau de pointeurs vers Task
+    Task** sequence;
     int fitness;
 } Individu;
 
-// Prototypes des fonctions
 void evaluerFitness(Individu* individu, int n);
 void initialiserPopulation(Individu population[POPULATION_SIZE], Task *tasks, int i);
 void selectionnerParTournoi(Individu population[POPULATION_SIZE], int taillePopulation, Individu **parentSelectionne);

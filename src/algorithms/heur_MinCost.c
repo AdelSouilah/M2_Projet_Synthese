@@ -2,7 +2,6 @@
 #include "instance_gen.h"
 
 Task* minimum_cost_rule(Task *tasks, int n) {
-    // Copie des tâches pour ne pas modifier l'ordre initial
     Task* tasks_copy = malloc(sizeof(Task) * n);
     Task* tasks_result = malloc(sizeof(Task) * n);
     tasks_result = memcpy(tasks_result, tasks, sizeof(Task) * n);

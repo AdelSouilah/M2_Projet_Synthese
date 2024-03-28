@@ -1,15 +1,14 @@
 #include "rech_taboo.h"
 #include "instance_gen.h"
 
-#define NUM_NEIGHBORS 20  // Nombre de voisins à générer par itération
-#define NUM_ITERATIONS 5  // Nombre total d'itérations
+#define NUM_NEIGHBORS 20
+#define NUM_ITERATIONS 5
 
-#define TABOO_SIZE 10  // Taille de la liste tabou
+#define TABOO_SIZE 10
 
 TabooMove tabooList[TABOO_SIZE];
 int tabooIndex = 0;
 
-// Taboo search
 void addTabooMove(int task1, int task2) {
     tabooList[tabooIndex].task1 = task1;
     tabooList[tabooIndex].task2 = task2;
@@ -66,14 +65,7 @@ void tabooSearch(Task *tasks, int n) {
             bestTardiness = currentBestTardiness;
         }
     }
-
-/*    // Afficher la séquence du meilleur individu
-    printf("Meilleure séquence tabou: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ",bestSolution[i].i); // Assurez-vous que cela correspond à votre structure de données
-    }*/
-
-    memcpy(tasks, bestSolution, n * sizeof(Task));  // Restaurer la meilleure solution trouvée
+    memcpy(tasks, bestSolution, n * sizeof(Task));
 }
 
 void test_taboo(Task *tasks, int n) {

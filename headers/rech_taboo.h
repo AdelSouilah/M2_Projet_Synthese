@@ -3,10 +3,10 @@
 
 #include "aide.h"
 
-#define NUM_NEIGHBORS 20  // Nombre de voisins à générer par itération
-#define NUM_ITERATIONS 5  // Nombre total d'itérations
+#define NUM_NEIGHBORS 20
+#define NUM_ITERATIONS 5
 
-#define TABOO_SIZE 10  // Taille de la liste tabou
+#define TABOO_SIZE 10
 
 typedef struct {
     int task1;
